@@ -1,0 +1,62 @@
+﻿@model IEnumerable<ClientesIntegracao.Models.Cliente>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Clientes</h1>
+<p>
+    <a asp-action="Create">Novo</a>
+</p>
+
+@{
+    if (!Model.Any())
+    {
+        <p>Nenhum cliente cadastrado.</p>
+    }
+    else
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nome)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Cnpj)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TokenEgestor)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TokenMovidesk)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Cnpj)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TokenEgestor)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TokenMovidesk)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Id">Deletar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+}
