@@ -12,7 +12,6 @@ builder.Services.AddDefaultAWSOptions(options);
 Environment.SetEnvironmentVariable("AWS_ACCESS_KEY_ID", builder.Configuration["AWS:AccessKey"]);
 Environment.SetEnvironmentVariable("AWS_SECRET_ACCESS_KEY", builder.Configuration["AWS:SecretKey"]);
 Environment.SetEnvironmentVariable("AWS_REGION", builder.Configuration["AWS:Region"]);
-Environment.SetEnvironmentVariable("AWS_CONTENT", builder.Configuration["VAR:TableName"]);
 
 builder.Services.AddAWSService<IAmazonDynamoDB>();
 builder.Services.AddScoped<IDynamoDBContext, DynamoDBContext>();
